@@ -1,0 +1,109 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!--========== BOX ICONS ==========-->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--========== CSS ==========-->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link href="{% static 'css/signup.css' %}" rel="stylesheet">
+    <title>TASTY FOODS</title>
+</head>
+<body>
+
+<!--========== SCROLL TOP ==========-->
+<a class="scrolltop" href="#" id="scroll-top">
+    <i class='bx bx-chevron-up scrolltop__icon'></i>
+</a>
+
+<!--========== HEADER ==========-->
+
+<header class="l-header" id="header">
+    {% if request.resolver_match.url_name not in 'login signup' %}
+    <nav class="nav bd-container">
+        <a class="nav__logo" href="{% url 'index' %}">Tasty Foods</a>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link active-link" href="#home">Home</a></li>
+                <li class="nav__item"><a class="nav__link" href="#about">About</a></li>
+                <li class="nav__item"><a class="nav__link" href="#services">Services</a></li>
+                <li class="nav__item"><a class="nav__link" href="#menu">Menu</a></li>
+                <li class="nav__item"><a class="nav__link" href="#contact">Contact us</a></li>
+                <li class="nav__item"><a class="nav__link" href="{% url 'login' %}">Login</a></li>
+
+                <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+            </ul>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+            <i class='bx bx-menu'></i>
+        </div>
+    </nav>
+
+</header>
+{% endif %}
+<main class="l-main">
+    {% block content %}
+
+    {% endblock content %}
+
+
+    <!--========== FOOTER ==========-->
+    <footer class="footer section bd-container">
+        <div class="footer__container bd-grid">
+            <div class="footer__content">
+                <a class="footer__logo" href="#">Tasty Food</a>
+                <span class="footer__description">Restaurant</span>
+                <div>
+                    <a class="footer__social" href="#"><i class='bx bxl-facebook'></i></a>
+                    <a class="footer__social" href="#"><i class='bx bxl-instagram'></i></a>
+                    <a class="footer__social" href="#"><i class='bx bxl-twitter'></i></a>
+                </div>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Services</h3>
+                <ul>
+                    <li><a class="footer__link" href="#">Delivery</a></li>
+                    <li><a class="footer__link" href="#">Pricing</a></li>
+                    <li><a class="footer__link" href="#">Fast food</a></li>
+                    <li><a class="footer__link" href="#">Reserve your spot</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Information</h3>
+                <ul>
+                    <li><a class="footer__link" href="#">Event</a></li>
+                    <li><a class="footer__link" href="#">Contact us</a></li>
+                    <li><a class="footer__link" href="#">Privacy policy</a></li>
+                    <li><a class="footer__link" href="#">Terms of services</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Address</h3>
+                <ul>
+                    <li><b>roddy.blk@gmail.com</b></li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="footer__copy">&#169; {% now "Y" %} All rights reserved</p>
+    </footer>
+
+    {% block scripts %}
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+
+    <script src="{% static 'js/login.js' %}"></script>
+
+    {% endblock %}
+</body>
+</html>

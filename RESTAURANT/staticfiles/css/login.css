@@ -1,0 +1,72 @@
+/* LOGIN PAGE STYLES - Tasty Foods */
+.login-page {
+    margin-top: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background: var(--body-color);
+}
+
+.login-card {
+    background: var(--container-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+}
+
+.login-card h2 {
+    color: var(--first-color);
+}
+
+.login-card p {
+    color: var(--text-color);
+}
+
+.login-card input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.6rem 0;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    outline: none;
+    font-family: var(--body-font);
+}
+
+.login-card input:focus {
+    border-color: var(--first-color);
+}
+
+.forgot,
+.signup-text a {
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.forgot:hover,
+.signup-text a:hover {
+    color: var(--first-color-alt);
+}
+
+.button {
+    margin-top: 1rem;
+    width: 100%;
+    background-color: var(--first-color);
+    border: none;
+    cursor: pointer;
+}
+
+.signup-text {
+    margin-top: 1rem;
+    font-size: var(--small-font-size);
+}

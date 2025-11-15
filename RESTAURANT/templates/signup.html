@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<main class="signup-page bd-container">
+    <div class="signup-card">
+        <a href="{% url 'index' %}" class="brand-link">Tasty Foods</a>
+        <h2 class="section-title">Create an Account</h2>
+        <p class="section-subtitle">Join our food lovers’ community 🍕</p>
+        <form class="signup-form" method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <input placeholder="Full Name" required type="text" name="username">
+            </div>
+            <div class="form-group">
+                <input placeholder="Email" required type="email" name="email">
+            </div>
+            <div class="form-group">
+                <input placeholder="Password" required type="password" name="password">
+            </div>
+            <div class="form-group">
+                <input placeholder="Confirm Password" required type="password" name="password">
+            </div>
+            <button class="button" type="submit">Sign Up</button>
+            <p class="login-text">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </form>
+    </div>
+</main>
+{% endblock %}
+{% block script %}
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/signup.js' %}"></script>
+{% endblock %}

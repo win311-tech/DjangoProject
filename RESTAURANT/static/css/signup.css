@@ -1,0 +1,70 @@
+/* SIGN-UP PAGE STYLES - Tasty Foods */
+.signup-page {
+    margin-top: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background: var(--body-color);
+}
+
+.signup-card {
+    background: var(--container-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+    transition: transform 0.3s ease;
+}
+
+.signup-card:hover {
+    transform: translateY(-5px);
+}
+
+.signup-card h2 {
+    color: var(--first-color);
+}
+
+.signup-card p {
+    color: var(--text-color);
+}
+
+.signup-card input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.6rem 0;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    outline: none;
+    font-family: var(--body-font);
+}
+
+.signup-card input:focus {
+    border-color: var(--first-color);
+}
+
+.button {
+    margin-top: 1rem;
+    width: 100%;
+    background-color: var(--first-color);
+    border: none;
+    cursor: pointer;
+}
+
+.login-text {
+    margin-top: 1rem;
+    font-size: var(--small-font-size);
+}
+
+.login-text a {
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.login-text a:hover {
+    color: var(--first-color-alt);
+}
