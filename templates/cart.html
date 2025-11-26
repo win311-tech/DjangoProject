@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<title>Cart - Tasty Foods</title>
+  <main class="cart-container bd-container">
+    <h2 class="section-title">Menu</h2>
+    <div class="menu__container bd-grid">
+      <div class="menu__content">
+        <button class="favorite-btn" data-item-name="Barbecue salad" onclick="toggleFavorite('Barbecue salad', 22.00, {% static 'img/plate1.png' %} style="position: absolute; top: 10px; right: 10px; z-index: 10;">
+          <i class='bx bx-heart'></i>
+        </button>
+        <img src="{% static  'img/plate1.png' %}" alt="Barbecue salad" class="menu__img">
+        <h3 class="menu__name">Barbecue salad</h3>
+        <span class="menu__detail">Delicious dish</span>
+        <span class="menu__preci">GH₵22.00</span>
+        <button class="button menu__button" onclick="addToCart('Barbecue salad', 22.00, {% static 'img/plate1.png' %}, 1)">
+          <i class='bx bx-cart-alt'></i> Add to Cart
+        </button>
+      </div>
+
+      <div class="menu__content">
+        <button class="favorite-btn" data-item-name="Salad with fish" onclick="toggleFavorite('Salad with fish', 12.00,{% static 'img/plate2.png' %})" style="position: absolute; top: 10px; right: 10px; z-index: 10;">
+          <i class='bx bx-heart'></i>
+        </button>
+        <img src="{% static 'img/plate2.png' %} " alt="Salad with fish" class="menu__img">
+        <h3 class="menu__name">Salad with fish</h3>
+        <span class="menu__detail">Delicious dish</span>
+        <span class="menu__preci">GH₵12.00</span>
+        <button class="button menu__button" onclick="addToCart('Salad with fish', 12.00, {% static 'img/plate2.png' %}, 1)">
+          <i class='bx bx-cart-alt'></i> Add to Cart
+        </button>
+      </div>
+
+      <div class="menu__content">
+        <button class="favorite-btn" data-item-name="Spinach salad" onclick="toggleFavorite('Spinach salad', 9.50, {% static 'img/plate3.png' %},1)" style="position: absolute; top: 10px; right: 10px; z-index: 10;">
+          <i class='bx bx-heart'></i>
+        </button>
+        <img src="{% static 'img/plate3.png' %}" alt="Spinach salad" class="menu__img">
+        <h3 class="menu__name">Spinach salad</h3>
+        <span class="menu__detail">Delicious dish</span>
+        <span class="menu__preci">GH₵9.50</span>
+        <button class="button menu__button" onclick="addToCart('Spinach salad', 9.50, {% static 'img/plate3.png' %}, 1)">
+          <i class='bx bx-cart-alt'></i> Add to Cart
+        </button>
+      </div>
+    </div>
+
+    <h2 class="section-title">Your Cart</h2>
+    <div id="cart-items" class="cart__items"></div>
+    <div class="cart-summary">
+      <p>Total: <span id="cart-total">GH₵0.00</span></p>
+      <div class="cart-actions">
+        <button class="clear-cart-btn" onclick="clearCart()">
+          <i class='bx bx-trash'></i> Clear Cart
+        </button>
+        <button class="checkout-btn" onclick="proceedToCheckout()">
+          <i class='bx bx-credit-card'></i> Checkout
+        </button>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/cart.js' %}"></script>
+</body>
+</html>

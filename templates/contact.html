@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+  <header class="l-header" id="header">
+    <nav class="nav bd-container">
+      <a href="index.html" class="nav__logo">Tasty Foods</a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="{% url 'index' %}" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="{% url 'cart' %}" class="nav__link">Order Now</a></li>
+          <li class="nav__item"><a href="{% url 'favorites' %}" class="nav__link">Favorites</a></li>
+          <li class="nav__item"><a href="{% url 'order-history' %}" class="nav__link">Orders</a></li>
+          <li class="nav__item"><a href="{% url 'contact' %}" class="nav__link active-link">Contact</a></li>
+          <li class="nav__item cart-icon-wrapper">
+            <a href="{% url 'cart' %}" class="nav__link">
+              <i class='bx bx-cart'></i>
+              <span id="cart-counter" class="cart-counter">0</span>
+            </a>
+          </li>
+          <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+        </ul>
+      </div>
+      <div class="nav__toggle" id="nav-toggle">
+        <i class='bx bx-menu'></i>
+      </div>
+    </nav>
+  </header>
+
+  <main class="contact-page bd-container">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">We'd love to hear from you!</p>
+
+    <div class="contact-container">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="info-card">
+          <i class='bx bx-map'></i>
+          <h3>Visit Us</h3>
+          <p>123 Main Street<br>Accra, Ghana</p>
+        </div>
+
+        <div class="info-card">
+          <i class='bx bx-phone'></i>
+          <h3>Call Us</h3>
+          <p>+233 20 211 7060<br>+233 53 176 4451</p>
+        </div>
+
+        <div class="info-card">
+          <i class='bx bx-envelope'></i>
+          <h3>Email Us</h3>
+          <p>support.tastyfoods@gmail.com<br>support.tastyfoods@gmail.com</p>
+        </div>
+
+        <div class="info-card">
+          <i class='bx bx-time'></i>
+          <h3>Opening Hours</h3>
+          <p>Mon-Fri: 9:00 AM - 10:00 PM<br>Sat-Sun: 10:00 AM - 11:00 PM</p>
+        </div>
+
+        <div class="social-links">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class='bx bxl-facebook'></i></a>
+            <a href="#" class="social-icon"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="social-icon"><i class='bx bxl-twitter'></i></a>
+            <a href="#" class="social-icon"><i class='bx bxl-whatsapp'></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrapper">
+        <form id="contact-form" class="contact-form">
+          <h3>Send us a Message</h3>
+          
+          <div class="form-group">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject <span class="required">*</span></label>
+            <select id="subject" name="subject" required>
+              <option value="">Select a subject</option>
+              <option value="general">General Inquiry</option>
+              <option value="order">Order Related</option>
+              <option value="feedback">Feedback</option>
+              <option value="complaint">Complaint</option>
+              <option value="catering">Catering Services</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message <span class="required">*</span></label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+
+          <button type="submit" class="button submit-btn">
+            <i class='bx bx-send'></i> Send Message
+          </button>
+        </form>
+
+        <div id="form-success" class="form-message success-message" style="display: none;">
+          <i class='bx bx-check-circle'></i>
+          <h3>Message Sent Successfully!</h3>
+          <p>Thank you for contacting us. We'll get back to you soon.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/cart.js' %}"></script>
+  <script src="{% static 'js/contact.js' %}"></script>
+</body>
+</html>

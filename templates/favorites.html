@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorites | Tasty Foods</title>
+  <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+  <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+</head>
+<body>
+  <header class="l-header" id="header">
+    <nav class="nav bd-container">
+      <a href="{% url 'index' %}" class="nav__logo">Tasty Foods</a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="{% url 'index' %}" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="{% url 'cart' %}" class="nav__link">Order Now</a></li>
+          <li class="nav__item"><a href="{% url 'favorites' %}" class="nav__link active-link">Favorites</a></li>
+          <li class="nav__item"><a href="{% url 'order-history' %}" class="nav__link">Orders</a></li>
+          <li class="nav__item"><a href="{% url 'contact' %}" class="nav__link">Contact</a></li>
+          <li class="nav__item cart-icon-wrapper">
+            <a href="{% url 'cart' %}" class="nav__link">
+              <i class='bx bx-cart'></i>
+              <span id="cart-counter" class="cart-counter">0</span>
+            </a>
+          </li>
+          <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+        </ul>
+      </div>
+      <div class="nav__toggle" id="nav-toggle">
+        <i class='bx bx-menu'></i>
+      </div>
+    </nav>
+  </header>
+
+  <main class="cart-container bd-container">
+    <h2 class="section-title">My Favorites</h2>
+    <p class="section-subtitle">Your favorite dishes</p>
+
+    <div id="favorites-container" class="menu__container bd-grid" style="margin-top: 2rem;">
+      <!-- Favorites will be loaded here by JavaScript -->
+    </div>
+  </main>
+{% endblock %}
+
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/cart.js' %}"></script>
+</body>
+</html>

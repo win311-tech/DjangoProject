@@ -1,0 +1,144 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!--========== BOX ICONS ==========-->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--========== CSS ==========-->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link href="{% static 'css/signup.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+</head>
+    <title>TASTY FOODS</title>
+</head>
+<body>
+
+<!--========== SCROLL TOP ==========-->
+<a class="scrolltop" href="#" id="scroll-top">
+    <i class='bx bx-chevron-up scrolltop__icon'></i>
+</a>
+
+<!--========== HEADER ==========-->
+
+<header class="l-header" id="header">
+    {% if request.resolver_match.url_name not in 'login signup' %}
+    <nav class="nav bd-container">
+        <a class="nav__logo" href="{% url 'index' %}">Tasty Foods</a>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link active-link" href="{% url 'index' %}">Home</a></li>
+                <li class="nav__item"><a class="nav__link" href="#about">About</></li>
+                <li class="nav__item"><a class="nav__link" href="#services">Services</a></li>
+                <li class="nav__item"><a class="nav__link" href="#menu">Menu</a></li>
+                <li class="nav__item"><a class="nav__link" href="{% url 'cart' %}">Order Now</a></li>
+
+        <!-- Dropdown Menu -->
+        <li class="nav__item dropdown">
+          <a href="#" class="nav__link dropdown-toggle">
+            More <i class='bx bx-chevron-down'></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href=" {% url 'favorites' %}" class="nav__link">
+              <i class='bx bx-heart'></i> Favorites
+            </a>
+            <a href="{% url 'order-history' %}" class="nav__link">
+              <i class='bx bx-receipt'></i> Orders
+            </a>
+            <a href=" {%  url 'contact' %}" class="nav__link">
+              <i class='bx bx-envelope'></i> Contact
+            </a>
+          </div>
+        </li>
+
+        <!-- Cart Icon with Counter -->
+        <li class="nav__item cart-icon-wrapper">
+          <a href=" {% url 'cart' %}" class="nav__link">
+            <i class='bx bx-cart'></i>
+            <span id="cart-counter" class="cart-counter">0</span>
+          </a>
+        </li>
+
+
+        <!-- Login Button -->
+        <li class="nav__item">
+          <a href="{% url 'login' %}" class="nav__link login-link">
+            <i class='bx bx-user'></i> Login
+          </a>
+        </li>
+
+
+        <!-- Theme Toggle -->
+        <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+      </ul>
+
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+            <i class='bx bx-menu'></i>
+        </div>
+
+    </nav>
+
+</header>
+{% endif %}
+<main class="l-main">
+    {% block content %}
+
+    {% endblock content %}
+
+
+    <!--========== FOOTER ==========-->
+
+  <footer class="footer section bd-container">
+    <div class="footer__container bd-grid">
+      <div class="footer__content">
+        <a href="#" class="footer__logo">Tasty Food</a>
+        <span class="footer__description">Restaurant</span>
+        <div>
+          <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
+          <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>
+          <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
+        </div>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Quick Links</h3>
+        <ul>
+          <li><a href="{% url 'index' %}" class="footer__link">Home</a></li>
+          <li><a href="{% url 'cart' %}" class="footer__link">Order Now</a></li>
+          <li><a href="{% url 'favorites' %}" class="footer__link">Favorites</a></li>
+          <li><a href="{% url 'order-history' %}" class="footer__link">Order History</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Contact</h3>
+        <ul>
+          <li><b>Roddy.blk@gmail.com</b></li>
+          <li>123 Main Street, Accra</li>
+          <li>+233 XX XXX XXXX</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer__copy">&#169; 2024 Tasty Foods. All rights reserved</p>
+  </footer>
+
+    {% block scripts %}
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+<script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/cart.js' %}"></script>
+  <script src="{% static 'js/contact.js' %}"></script>
+
+    <script src="{% static 'js/login.js' %}"></script>
+
+    {% endblock %}
+</body>
+</html>
