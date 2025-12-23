@@ -44,13 +44,13 @@
             More <i class='bx bx-chevron-down'></i>
           </a>
           <div class="dropdown-menu">
-            <a href=" {% url 'favorites' %}" class="nav__link">
+            <a href="{% url 'favorites' %}" class="nav__link">
               <i class='bx bx-heart'></i> Favorites
             </a>
             <a href="{% url 'order-history' %}" class="nav__link">
               <i class='bx bx-receipt'></i> Orders
             </a>
-            <a href=" {%  url 'contact' %}" class="nav__link">
+            <a href="{% url 'contact' %}" class="nav__link">
               <i class='bx bx-envelope'></i> Contact
             </a>
           </div>
@@ -58,7 +58,7 @@
 
         <!-- Cart Icon with Counter -->
         <li class="nav__item cart-icon-wrapper">
-          <a href=" {% url 'cart' %}" class="nav__link">
+          <a href="{% url 'cart' %}" class="nav__link">
             <i class='bx bx-cart'></i>
             <span id="cart-counter" class="cart-counter">0</span>
           </a>

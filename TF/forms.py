@@ -36,11 +36,18 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ['name', 'email', 'password1', 'password2']
 
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        # Ensure email uniqueness (case-insensitive)
+        if User.objects.filter(email__iexact=email).exists():
+            raise forms.ValidationError('A user with that email already exists.')
+        return email
+
     def save(self, commit=True):
         user = super().save(commit=False)
         user.email = self.cleaned_data['email']
-        # Use name as first_last or username
-        user.username = self.cleaned_data['email'].split('@')[0]  # Use email prefix as username
+        # Use full email as username so login with email works
+        user.username = self.cleaned_data['email']
         user.first_name = self.cleaned_data['name']
         if commit:
             user.save()
